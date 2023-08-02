@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div>
+  <header class="absolute inset-x-0 top-0 z-50">
+    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <img class="h-8 w-auto" src="Xbox_Logo.svg" alt="">
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-900"></a>
+      </div>
+    </nav>
+
+  </header>
+
+  <div class="relative isolate px-6 pt-14 lg:px-8">
+
+    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+      <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+
+      </div>
+      <div class="text-center">
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Is this game safe for my child?</h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">Enter the name of the game and the age of your child to determine whether or not it is safe.</p>
+
+        <div class="mt-6 flex max-w-md gap-x-4 ">
+            <label for="game-name" class="sr-only">Game Name</label>
+            <input id="game-name" name="game-name" type="text" required class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Game Name">
+
+            <label for="child-age" class="sr-only">Child Age</label>
+            <input id="child-age" name="child-age" type="text" required class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Child Age">
+
+            <button type="submit" class="flex-none rounded-md bg-green-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Check</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
