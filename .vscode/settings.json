@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/03b67bbe-c2b6-49de-9540-37b91dc726ca/resourceGroups/xbox-safe-game/providers/Microsoft.Web/sites/xbox-safe-game",
+    "appService.deploySubpath": "."
+}
