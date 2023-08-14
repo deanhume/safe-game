@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
+const fs = require("fs");
 const { lookup } = require('geoip-lite');
 const port = 3000;
 
@@ -15,20 +16,35 @@ app.get('/', (req, res) => {
 
 app.post('/title', (req, res) => {
     let data = req.body;
-    console.log( JSON.stringify(data));
+    console.log(JSON.stringify(data));
 
     // Get the location from the IP address
     let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
     // If the IP address is localhost, use my IP address
-    if (ip = "::1"){
+    if (ip = "::1") {
         ip = "81.152.36.114";
     }
 
     const location = lookup(ip).country;
     console.log(location);
 
-    res.sendFile(path.join(__dirname, '/index.html'));
+    // Load the HTML file
+    const buffer = fs.readFileSync(path.join(__dirname, '/index.html'));
+    const fileContent = buffer.toString();
+
+    // Load the ratings details file
+    const detailsBuffer = fs.readFileSync(path.join(__dirname, '/details.html'));
+    const detailsContent = detailsBuffer.toString();
+
+    // Append the ratings details based on the location
+    let htmlToReturn = fileContent.replace("<!--{{Details}}-->", detailsContent);
+
+    // Suggest alternative titles
+
+    // Return the HTML
+    res.setHeader("Content-Type", "text/html")
+    res.send(htmlToReturn);
 })
 
 app.listen(port, () => {
