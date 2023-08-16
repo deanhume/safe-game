@@ -6,6 +6,9 @@ const fs = require("fs");
 const { lookup } = require('geoip-lite');
 const port = 3000;
 
+// The public folder contains the CSS and JS files
+app.use(express.static('public'));
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -30,7 +33,7 @@ app.post('/title', (req, res) => {
     console.log(location);
 
     // Load the HTML file
-    const buffer = fs.readFileSync(path.join(__dirname, '/index.html'));
+    const buffer = fs.readFileSync(path.join(__dirname, '/title-details.html'));
     const fileContent = buffer.toString();
 
     // Load the ratings details file
