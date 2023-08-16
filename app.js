@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const fs = require("fs");
 const { lookup } = require('geoip-lite');
-const port = 3000;
+const port = process.env.PORT || 3000;  
 
 // The public folder contains the CSS and JS files
 app.use(express.static('public'));
