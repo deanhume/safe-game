@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const fs = require("fs");
 const { lookup } = require('geoip-lite');
-const port = process.env.PORT || 3000;  
+const port = process.env.PORT || 3000;
 
 // The public folder contains the CSS and JS files
 app.use(express.static('public'));
@@ -30,18 +30,20 @@ app.post('/title', (req, res) => {
     }
 
     const location = lookup(ip).country;
-    console.log(location);
 
     // Load the HTML file
     const buffer = fs.readFileSync(path.join(__dirname, '/title-details.html'));
     const fileContent = buffer.toString();
 
     // Load the ratings details file
-    const detailsBuffer = fs.readFileSync(path.join(__dirname, '/details.html'));
+    const detailsBuffer = fs.readFileSync(path.join(__dirname, '/details2.html'));
     const detailsContent = detailsBuffer.toString();
 
     // Append the ratings details based on the location
     let htmlToReturn = fileContent.replace("<!--{{Details}}-->", detailsContent);
+
+    // Replace the country in the HTML file
+    htmlToReturn = htmlToReturn.replace("<!--{{Location}}-->", `<strong>${location}</strong>`);
 
     // Suggest alternative titles
 
