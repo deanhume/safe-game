@@ -13,7 +13,6 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
-    // res.send('Hello World!');
     res.sendFile(path.join(__dirname, '/index.html'));
 })
 
@@ -26,15 +25,9 @@ app.get('/title/:title/:id/:age', (req, res) => {
     let age = req.params.age;
 
     // Get the location from the IP address
-    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const location = getCountryLocation(req);
 
-    // If the IP address is localhost, use my IP address
-    if (ip = "::1") {
-        ip = "81.152.36.114";
-    }
-
-    const location = lookup(ip).country;
-
+    // Build the HTML to return
     let htmlToReturn = buildTitleDetails(id, location, age);
 
     // Return the HTML
@@ -47,6 +40,23 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 })
 
+/**
+ * Get the country location from the IP address
+ * @param {*} req 
+ * @returns 
+ */
+function getCountryLocation(req) {
+    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+    // If the IP address is localhost, use my IP address
+    if (ip = "::1") {
+        ip = "81.152.36.114";
+    }
+
+    // Get the location from the IP address
+    const location = lookup(ip).country;
+    return location;
+}
 
 /**
  * Build the HTML details of the game title.
