@@ -8,17 +8,16 @@
 
   <script>
     function validateForm() {
-        let gameName = document.getElementById('game-name').value;
-        let childAge = document.getElementById('child-age').value;
-        //let id = document.getElementById('id').value;
-        let id = 1;
+      let gameName = document.getElementById('game-name').value;
+      let childAge = document.getElementById('child-age').value;
+      let id = document.getElementById('id').value;
+      
+      let url = `/title/${gameName}/${id}/${childAge}`;
 
-        let url = `/title/${gameName}/${id}/${childAge}`;
-        
-        location.href = url;
-        return false;
+      location.href = url;
+      return false;
     }
-</script>
+  </script>
 
 </head>
 
@@ -63,14 +62,23 @@
           <form action="/title" method="get" onsubmit="return validateForm();">
 
             <div class="mt-6 flex gap-x-4 ">
+              <!-- Drop down Selector -->
+              <div class="w-96 relative" onclick="event.stopImmediatePropagation();">
               <label for="game-name" class="sr-only">Game Name</label>
               <input id="game-name" name="game-name" type="text" required
-                class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                placeholder="Game Name">
+                class="px-5 py-3 w-full border border-gray-300 rounded-md"
+                placeholder="Game Name" onkeyup="onkeyUp(event)">
+                <div
+                id="dropdown"
+                class="w-full h-60 border border-gray-300 rounded-md bg-white absolute overflow-y-auto hidden"></div>
+
+                <input type="hidden" id="id" name="id" />
+            </div>
+              
 
               <label for="child-age" class="sr-only">Child Age</label>
               <input id="child-age" name="child-age" type="text" required
-                class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                class="px-5 py-3 w-full border border-gray-300 rounded-md"
                 placeholder="Child Age">
 
               <input type="submit"
@@ -90,5 +98,66 @@
   </div>
 
 </body>
+<script>
+  let games = [
+    { name: "Halo Infinite", code: "1" },
+    { name: "Minecraft", code: "2" },
+    { name: "Forza Horizon 5", code: "3" },
+    { name: "Minecraft Legends", code: "4" },
+  ];
+
+  function onkeyUp(e) {
+    let keyword = e.target.value;
+    let dropdownEl = document.querySelector("#dropdown");
+    dropdownEl.classList.remove("hidden");
+    let filteredGames = games.filter((c) =>
+      c.name.toLowerCase().includes(keyword.toLowerCase())
+    );
+
+    renderOptions(filteredGames);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    renderOptions(games);
+  });
+
+  function renderOptions(options) {
+    let dropdownEl = document.querySelector("#dropdown");
+
+    let newHtml = ``;
+
+    options.forEach((country) => {
+      newHtml += `<div
+            onclick="selectOption('${country.name}', '${country.code}')"
+            class="px-5 py-3 border-b border-gray-200 text-stone-600 cursor-pointer hover:bg-slate-100 transition-colors"
+          >
+            ${country.name}
+          </div>`;
+    });
+
+    dropdownEl.innerHTML = newHtml;
+  }
+
+  function selectOption(countryName, countryCode) {
+    hideDropdown();
+    let input = document.querySelector("#game-name");
+    input.value = countryName;
+
+    let id = document.querySelector("#id");
+    id.value = countryCode;
+
+  }
+
+  document.addEventListener("click", () => {
+    hideDropdown();
+  });
+
+  function hideDropdown() {
+    let dropdownEl = document.querySelector("#dropdown");
+    dropdownEl.classList.add("hidden");
+  }
+
+
+</script>
 
 </html>
