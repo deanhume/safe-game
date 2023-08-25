@@ -17,9 +17,13 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/index.html'));
 })
 
-app.post('/title', (req, res) => {
-    let data = req.body;
-    console.log(JSON.stringify(data));
+/**
+ * This is the endpoint that is called when the user clicks on a title
+ */
+app.get('/title/:title/:id/:age', (req, res) => {
+    let title = req.params.title;
+    let id = req.params.id;
+    let age = req.params.age;
 
     // Get the location from the IP address
     let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
@@ -31,27 +35,42 @@ app.post('/title', (req, res) => {
 
     const location = lookup(ip).country;
 
-    // Load the HTML file
-    const buffer = fs.readFileSync(path.join(__dirname, '/title-details.html'));
-    const fileContent = buffer.toString();
-
-    // Load the ratings details file
-    const detailsBuffer = fs.readFileSync(path.join(__dirname, '/details2.html'));
-    const detailsContent = detailsBuffer.toString();
-
-    // Append the ratings details based on the location
-    let htmlToReturn = fileContent.replace("<!--{{Details}}-->", detailsContent);
-
-    // Replace the country in the HTML file
-    htmlToReturn = htmlToReturn.replace("<!--{{Location}}-->", `<strong>${location}</strong>`);
-
-    // Suggest alternative titles
+    let htmlToReturn = buildTitleDetails(id, location, age);
 
     // Return the HTML
     res.setHeader("Content-Type", "text/html")
     res.send(htmlToReturn);
 })
 
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 })
+
+
+/**
+ * Build the HTML details of the game title.
+ * @param {string} id 
+ * @param {string} location 
+ * @returns HTML string with full details of the game title
+ */
+function buildTitleDetails(id, location, age) {
+    const buffer = fs.readFileSync(path.join(__dirname, '/title-details.html'));
+    const fileContent = buffer.toString();
+
+    // Load the ratings details file
+    const detailsBuffer = fs.readFileSync(path.join(__dirname, `/title-details/${id}.html`));
+    let detailsContent = detailsBuffer.toString();
+
+    detailsContent = detailsContent.replace("<!--{{age}}-->", age);
+
+    // Append the ratings details based on the location
+    let htmlToReturn = fileContent.replace("<!--{{Details}}-->", detailsContent);
+
+    // Replace the age in the HTML file
+    htmlToReturn = htmlToReturn.replace("<!--{{age}}-->", age);
+
+    // Replace the country in the HTML file
+    htmlToReturn = htmlToReturn.replace("<!--{{Location}}-->", `<strong>${location}</strong>`);
+    return htmlToReturn;
+}
