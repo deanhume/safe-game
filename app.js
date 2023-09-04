@@ -35,6 +35,23 @@ app.get('/title/:title/:id/:age', (req, res) => {
     res.send(htmlToReturn);
 })
 
+/**
+ * This is the endpoint that is called when the user chooses to see a suggested list 
+ */
+app.get('/suggest/:age', (req, res) => {
+    let age = req.params.age;
+
+    // Get the location from the IP address
+    const location = getCountryLocation(req);
+
+    // Build the HTML to return
+    let htmlToReturn = "test"; //buildTitleDetails(id, location, age);
+
+    // Return the HTML
+    res.setHeader("Content-Type", "text/html")
+    res.send(htmlToReturn);
+})
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);

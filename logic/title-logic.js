@@ -111,4 +111,8 @@ function buildTitleDetails(id, location, age) {
     return htmlToReturn;
 }
 
+function buildSuggestionDetails(location, age){
+
+}
+
 module.exports = { buildTitleDetails, getCountryLocation };
