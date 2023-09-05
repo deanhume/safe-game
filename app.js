@@ -1,4 +1,4 @@
-const  { buildTitleDetails, getCountryLocation } = require('./logic/title-logic.js');
+const  { buildTitleDetails, getCountryLocation, buildSuggestionDetails } = require('./logic/title-logic.js');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -45,7 +45,7 @@ app.get('/suggest/:age', (req, res) => {
     const location = getCountryLocation(req);
 
     // Build the HTML to return
-    let htmlToReturn = "test"; //buildTitleDetails(id, location, age);
+    let htmlToReturn = buildSuggestionDetails(location, age);
 
     // Return the HTML
     res.setHeader("Content-Type", "text/html")

@@ -51,18 +51,22 @@ function determineAgeRating(enteredAge, location, details) {
 // TODO: Update this to include the correct alternate titles based on age
 function loadAlternateTitle(age) {
 
-    let fileContent = "";
+    let filePath = "";
 
-    if (age <= 3) {
-        const buffer = fs.readFileSync(path.join(__dirname, '/../alternate-titles/age3.html'));
-        fileContent = buffer.toString();
-    }
-    else {
-        const buffer = fs.readFileSync(path.join(__dirname, '/../alternate-titles/age7.html'));
-        fileContent = buffer.toString();
+    if (age <= 7) {
+        filePath = path.join(__dirname, '/../alternate-titles/age3.html');
+    } else if (age < 12) {
+        filePath = path.join(__dirname, '/../alternate-titles/age7.html');
+    } else if (age < 16) {
+        filePath = path.join(__dirname, '/../alternate-titles/age12.html');
+    } else if (age < 18) {
+        filePath = path.join(__dirname, '/../alternate-titles/age16.html');
+    } else if (age >= 18) {
+        filePath = path.join(__dirname, '/../alternate-titles/age18.html');
     }
 
-    return fileContent.replace("<!--{{age}}-->", age);
+    const buffer = fs.readFileSync(filePath);
+    return buffer.toString();
 }
 
 /**
@@ -91,6 +95,7 @@ function buildTitleDetails(id, location, age) {
     detailsContent = detailsContent.replace("<!--{{otherIssues}}-->", details.otherIssues);
     detailsContent = detailsContent.replace("<!--{{alternateTitle}}-->", loadAlternateTitle(age));
     detailsContent = detailsContent.replace("<!--{{imageUrl}}-->", `/images/${id}.png`);
+    detailsContent = detailsContent.replace("<!--{{age}}-->", age);
 
     // Append the ratings details based on the location
     let htmlToReturn = fileContent.replace("<!--{{Details}}-->", detailsContent);
@@ -111,8 +116,17 @@ function buildTitleDetails(id, location, age) {
     return htmlToReturn;
 }
 
-function buildSuggestionDetails(location, age){
+function buildSuggestionDetails(location, age) {
+    const buffer = fs.readFileSync(path.join(__dirname, '/../suggestion.html'));
+    let fileContent = buffer.toString();
+
+    fileContent = fileContent.replace("<!--{{EnteredAge}}-->", age);
+
+    // TODO: Think about different locations and the appropriate age suggestions
+    fileContent = fileContent.replace("<!--{{alternateTitle}}-->", loadAlternateTitle(age));
+
+    return fileContent;
 
 }
 
-module.exports = { buildTitleDetails, getCountryLocation };
+module.exports = { buildTitleDetails, getCountryLocation, buildSuggestionDetails };
