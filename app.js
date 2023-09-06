@@ -1,4 +1,4 @@
-const  { buildTitleDetails, getCountryLocation, buildSuggestionDetails } = require('./logic/title-logic.js');
+const { buildTitleDetails, buildSuggestionDetails } = require('./logic/title-logic.js');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -24,11 +24,8 @@ app.get('/title/:title/:id/:age', (req, res) => {
     let id = req.params.id;
     let age = req.params.age;
 
-    // Get the location from the IP address
-    const location = getCountryLocation(req);
-
     // Build the HTML to return
-    let htmlToReturn = buildTitleDetails(id, location, age);
+    let htmlToReturn = buildTitleDetails(id, getIpAddress(req), age);
 
     // Return the HTML
     res.setHeader("Content-Type", "text/html")
@@ -41,11 +38,8 @@ app.get('/title/:title/:id/:age', (req, res) => {
 app.get('/suggest/:age', (req, res) => {
     let age = req.params.age;
 
-    // Get the location from the IP address
-    const location = getCountryLocation(req);
-
     // Build the HTML to return
-    let htmlToReturn = buildSuggestionDetails(location, age);
+    let htmlToReturn = buildSuggestionDetails(getIpAddress(req), age);
 
     // Return the HTML
     res.setHeader("Content-Type", "text/html")
@@ -57,3 +51,18 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 })
 
+/**
+ * Get the IP address of the user
+ * @param {*} req 
+ * @returns 
+ */
+function getIpAddress(req) {
+    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+    // If the IP address is localhost, use my IP address
+    if (ip = "::1") {
+        ip = "81.152.36.114";
+    }
+
+    return ip;
+}
