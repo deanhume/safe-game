@@ -64,5 +64,8 @@ function getIpAddress(req) {
         ip = "81.152.36.114";
     }
 
+    // US Test Override
+    ip = "207.97.227.239";
+
     return ip;
 }
