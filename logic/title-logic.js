@@ -13,23 +13,27 @@ const { determineLogoBasedOnCountryAndAge, getCountryLocation, getLocationDetail
 function determineAgeRating(enteredAge, ipAddress, details) {
 
     let titleAgeRating = 0;
-    let ratingImage = "";
+    let ratingImage = '';
     enteredAge = parseInt(enteredAge);
 
     // Get the location details
-    const location = getLocationDetails(ipAddress);
+    let location = getLocationDetails(ipAddress);
+
+    location.country = 'US';
+    location.eu = '0';
 
     // First, determine the age rating for the title based on the location
-    if (location.eu = "1") {
-        titleAgeRating = parseInt(details.rating.PEGI);
-        ratingImage = `/images/pegi/${details.rating.PEGI}.svg`;
-    } else if (location.country == "US") {
+    // if (location.eu = '1') {
+    //     titleAgeRating = parseInt(details.rating.PEGI);
+    //     ratingImage = `/images/pegi/${details.rating.PEGI}.svg`;
+    // } else 
+    if (location.country == "US") {
         titleAgeRating = parseInt(details.rating.ESRB);
         ratingImage = `/images/esrb/${details.rating.ESRB}.svg`;
-    } else if (location.country == "DJCTQ") {
+    } else if (location.country == "BR") {
         titleAgeRating = parseInt(details.rating.DJCTQ);
         ratingImage = `/images/djctq/${details.rating.DJCTQ}.svg`;
-    } else if (location.country == "CERO") {
+    } else if (location.country == "DE") {
         titleAgeRating = parseInt(details.rating.CERO);
         ratingImage = `/images/cero/${details.rating.CERO}.svg`;
     } else if (location.country == "GRAC") {
@@ -56,7 +60,7 @@ function determineAgeRating(enteredAge, ipAddress, details) {
     } else if (location.country == "PCBP") {
         titleAgeRating = parseInt(details.rating.PCBP);
         ratingImage = `/images/pcbp/${details.rating.PCBP}.svg`;
-    } else if (location.country == "GCAM") {
+    } else if (location.country == "SA") {
         titleAgeRating = parseInt(details.rating.GCAM);
         ratingImage = `/images/gcam/${details.rating.GCAM}.svg`;
     } else if (location.country == "MRO") {
