@@ -59,6 +59,8 @@ app.listen(port, () => {
 function getIpAddress(req) {
     let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
+    console.log(req.connection.remoteAddress);
+
     // If the IP address is localhost, use my IP address
     if (ip = "::1") {
         ip = "81.152.36.114";

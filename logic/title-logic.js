@@ -19,14 +19,7 @@ function determineAgeRating(enteredAge, ipAddress, details) {
     // Get the location details
     let location = getLocationDetails(ipAddress);
 
-    location.country = 'US';
-    location.eu = '0';
-
     // First, determine the age rating for the title based on the location
-    // if (location.eu = '1') {
-    //     titleAgeRating = parseInt(details.rating.PEGI);
-    //     ratingImage = `/images/pegi/${details.rating.PEGI}.svg`;
-    // } else 
     if (location.country == "US") {
         titleAgeRating = parseInt(details.rating.ESRB);
         ratingImage = `/images/esrb/${details.rating.ESRB}.svg`;
@@ -72,6 +65,10 @@ function determineAgeRating(enteredAge, ipAddress, details) {
     } else if (location.country == "OFLC") {
         titleAgeRating = parseInt(details.rating.OFLC);
         ratingImage = `/images/oflc/${details.rating.OFLC}.svg`;
+    //} else if (location.eu = '1') {
+    } else if (location.country = "GB") {
+        titleAgeRating = parseInt(details.rating.PEGI);
+        ratingImage = `/images/pegi/${details.rating.PEGI}.svg`;
     }
 
     return { titleAgeRating, ratingImage };
@@ -156,6 +153,7 @@ function buildTitleDetails(id, ipAddress, age) {
     // TODO: Need to fix this properly
     htmlToReturn = htmlToReturn.replace("<!--{{ratingsImageUrl}}-->", ageRating.ratingImage);
 
+    htmlToReturn = htmlToReturn.replace("<!--{{ipAddress}}-->", `${ipAddress}-${location.country}`);
 
     // Replace the country in the HTML file
     htmlToReturn = htmlToReturn.replace("<!--{{Location}}-->", `<strong>${location.country}</strong>`);
