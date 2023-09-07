@@ -18,7 +18,7 @@
       return false;
     }
 
-    function validateSuggestionForm(){    
+    function validateSuggestionForm() {
       let childAge = document.getElementById('suggestion-child-age').value;
 
       let url = `/suggest/${childAge}`;
@@ -31,108 +31,123 @@
 </head>
 
 <body>
-  <div>
-    <header class="absolute inset-x-0 top-0 z-50">
-      <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div class="flex lg:flex-1">
-        </div>
-        <div class="flex lg:hidden">
-          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-            <span class="sr-only">Open main menu</span>
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-              aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-        </div>
-        <div class="hidden lg:flex lg:gap-x-12">
-          <img class="h-14 w-auto" src="./images/Xbox_Logo.svg" alt="">
+  <div class="container mx-auto mt-16">
 
-        </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900"></a>
-        </div>
-      </nav>
+    <div class="relative overflow-hidden bg-white">
+      <div class="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
+        <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
 
-    </header>
-
-    <div class="relative isolate px-6 pt-14 lg:px-8">
-
-      <div class="mx-auto max-w-2xl py-32">
-        <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-
-        </div>
-        <div class="text-center">
-          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Is this game safe for my child?</h1>
-          <div class="mt-6 flex gap-x-12">
-
-            <div>
-              <img class="h-32 w-auto mx-auto" src="./images/surprise.svg" alt="Help me decide" onclick="showSuggestionSearch()">
-              <p>Suggest some games</p>
-            </div>
-
-            <div>
-              <img class="h-32 w-auto mx-auto" src="./images/search.svg" alt="Search by game name" onclick="showNameSearch()">
-              <p>Search by game name</p>
-            </div>
-
+          <div class="flex items-center">
+            <img class="h-14 w-auto" src="./images/Xbox_Logo.svg" alt="">
           </div>
 
-          <!-- Name search -->
-          <form action="/title" method="get" onsubmit="return validateForm();" id="nameSearch" style="display: none;">
-            <p class="mt-6 text-lg leading-8 text-gray-600">Enter the name of the game and the age of your child to
-              determine whether or not it is safe.</p>
-            <div class="mt-6 flex gap-x-4 " >
-              <!-- Drop down Selector -->
-              <div class="w-96 relative" onclick="event.stopImmediatePropagation();">
-                <label for="game-name" class="sr-only">Game Name</label>
-                <input id="game-name" name="game-name" type="text" required
-                  class="px-5 py-3 w-full border border-gray-300 rounded-md" placeholder="Game Name"
-                  onkeyup="onkeyUp(event)">
-                <div id="dropdown"
-                  class="w-full h-60 border border-gray-300 rounded-md bg-white absolute overflow-y-auto hidden"></div>
-
-                <input type="hidden" id="id" name="id" />
+          <div class="sm:max-w-lg">
+            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Is this game safe for your child?
+            </h1>
+            <p class="mt-4 text-xl text-gray-500">Are you struggling to work out the age appropriate games for your
+              child to play? Let us help you decide with this handy tool.</p>
+          </div>
+          <div>
+            <div class="mt-10">
+              <!-- Decorative image grid -->
+              <div aria-hidden="true"
+                class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
+                <div
+                  class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+                  <div class="flex items-center space-x-6 lg:space-x-8">
+                    <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+                        <img src="./images/1.png" alt="" class="h-full w-full object-cover object-center">
+                      </div>
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="./images/2.png" alt="" class="h-full w-full object-cover object-center">
+                      </div>
+                    </div>
+                    <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="./images/3.png" alt="" class="h-full w-full object-cover object-bottom">
+                      </div>
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="./images/4.png" alt="" class="h-full w-full object-cover object-center">
+                      </div>
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="./images/5.png" alt="" class="h-full w-full object-cover object-center">
+                      </div>
+                    </div>
+                    <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="./images/6.png" alt="" class="h-full w-full object-cover object-center">
+                      </div>
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="./images/7.png" alt="" class="h-full w-full object-cover object-center">
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-
-              <label for="child-age" class="sr-only">Child Age</label>
-              <input id="child-age" name="child-age" type="text" required
-                class="px-5 py-3 w-full border border-gray-300 rounded-md" placeholder="Child Age">
-
-              <input type="submit"
-                class="flex-none rounded-md bg-green-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
-                value="Check">
+              <a href="#"
+                class="inline-block rounded-md border border-transparent bg-green-600 px-8 py-3 text-center font-medium text-white hover:bg-green-700"
+                onclick="showSuggestionSearch()">Suggest some games</a>
+              <a href="#"
+                class="inline-block rounded-md border border-transparent bg-green-600 px-8 py-3 text-center font-medium text-white hover:bg-green-700"
+                onclick="showNameSearch()">Search by games name</a>
             </div>
 
-          </form>
+<!-- Name search -->
+<form action="/title" method="get" onsubmit="return validateForm();" id="nameSearch" style="display: none;">
+  <p class="mt-6 text-lg leading-8 text-gray-600">Enter the name of the game and the age of your child to
+    determine whether or not it is safe.</p>
+  <div class="mt-6 flex gap-x-4 " >
+    <!-- Drop down Selector -->
+    <div onclick="event.stopImmediatePropagation();">
+      <label for="game-name" class="sr-only">Game Name</label>
+      <input id="game-name" name="game-name" type="text" required
+        class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Game Name"
+        onkeyup="onkeyUp(event)">
+      <div id="dropdown"
+        class="-60 border border-gray-300 rounded-md bg-white absolute overflow-y-auto hidden"></div>
 
-          <!-- Suggestion Search  -->
-          <form action="/suggest" method="get" onsubmit="return validateSuggestionForm();" id="suggestionSearch" style="display: none;">
-            <p class="mt-6 text-lg leading-8 text-gray-600">Enter the age of your child to and we'll suggest appropriate games.</p>
-            <div class="mt-6 flex gap-x-4 " >
-
-              <label for="suggestion-child-age" class="sr-only">Child Age</label>
-              <input id="suggestion-child-age" name="suggestion-child-age" type="text" required
-                class="px-5 py-3 w-full border border-gray-300 rounded-md" placeholder="Child Age">
-
-              <input type="submit"
-                class="flex-none rounded-md bg-green-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
-                value="Suggest">
-            </div>
-
-          </form>
-        </div>
-      </div>
+      <input type="hidden" id="id" name="id" />
     </div>
 
 
-    <!-- Show details -->
-    <!--{{Details}}-->
+    <label for="child-age" class="sr-only">Child Age</label>
+    <input id="child-age" name="child-age" type="number" required
+      class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Child Age">
 
+    <input type="submit"
+      class="flex-none rounded-md bg-green-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+      value="Check">
+  </div>
+
+</form>
+
+<!-- Suggestion Search  -->
+<form action="/suggest" method="get" onsubmit="return validateSuggestionForm();" id="suggestionSearch" style="display: none;">
+  <p class="mt-6 text-lg leading-8 text-gray-600">Enter the age of your child to and we'll suggest appropriate games.</p>
+  <div class="mt-6 flex gap-x-4 " >
+
+    <label for="suggestion-child-age" class="sr-only">Child Age</label>
+    <input id="suggestion-child-age" name="suggestion-child-age" type="number" required
+      class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Child Age">
+
+    <input type="submit"
+      class="flex-none rounded-md bg-slate-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+      value="Suggest">
+  </div>
+
+</form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>
+
 <script>
   let games = [
     { name: "Halo Infinite", code: "1" },
@@ -167,11 +182,11 @@
 
     options.forEach((country) => {
       newHtml += `<div
-            onclick="selectOption('${country.name}', '${country.code}')"
-            class="px-5 py-3 border-b border-gray-200 text-stone-600 cursor-pointer hover:bg-slate-100 transition-colors"
-          >
-            ${country.name}
-          </div>`;
+              onclick="selectOption('${country.name}', '${country.code}')"
+              class="px-5 py-3 border-b border-gray-200 text-stone-600 cursor-pointer hover:bg-slate-100 transition-colors"
+            >
+              ${country.name}
+            </div>`;
     });
 
     dropdownEl.innerHTML = newHtml;
@@ -205,13 +220,13 @@
     }
   }
 
-  function showSuggestionSearch(){
+  function showSuggestionSearch() {
     let suggestionSearch = document.querySelector("#suggestionSearch");
     if (suggestionSearch.style.display === "none") {
       suggestionSearch.style.display = "block";
     } else {
       suggestionSearch.style.display = "none";
-    } 
+    }
   }
 
 </script>
