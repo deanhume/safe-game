@@ -19,13 +19,14 @@ app.get('/', (req, res) => {
 /**
  * This is the endpoint that is called when the user clicks on a title
  */
-app.get('/title/:title/:id/:age', (req, res) => {
+app.get('/title/:title/:id/:age/:countryoverride', (req, res) => {
     let title = req.params.title;
     let id = req.params.id;
     let age = req.params.age;
+    let countryoverride = req.params.countryoverride;
 
     // Build the HTML to return
-    let htmlToReturn = buildTitleDetails(id, getIpAddress(req), age);
+    let htmlToReturn = buildTitleDetails(id, getIpAddress(req), age, countryoverride);
 
     // Return the HTML
     res.setHeader("Content-Type", "text/html")

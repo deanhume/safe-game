@@ -42,7 +42,7 @@ function loadAlternateTitle(age) {
  * @param {string} ipAddress 
  * @returns HTML string with full details of the game title
  */
-function buildTitleDetails(id, ipAddress, age) {
+function buildTitleDetails(id, ipAddress, age, countryOverride) {
 
     const buffer = fs.readFileSync(path.join(__dirname, '/../title-details.html'));
     const fileContent = buffer.toString();
@@ -53,10 +53,10 @@ function buildTitleDetails(id, ipAddress, age) {
     let details = JSON.parse(jsonDetails);
 
     // Determine the age rating details
-    const ageRating = determineAgeRating(age, ipAddress, details);
+    const ageRating = determineAgeRating(age, ipAddress, details, countryOverride);
 
     // Load in the HTML template for the game details
-    const detailsBuffer = fs.readFileSync(path.join(__dirname, `/../title-details/template.html`));
+    const detailsBuffer = fs.readFileSync(path.join(__dirname, `/../data/template.html`));
     let detailsContent = detailsBuffer.toString();
 
     detailsContent = detailsContent.replace("<!--{{title}}-->", details.title);
