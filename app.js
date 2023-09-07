@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 /**
  * This is the endpoint that is called when the user clicks on a title
  */
-app.get('/title/:title/:id/:age/:countryoverride', (req, res) => {
+app.get('/title/:title/:id/:age/:countryoverride?', (req, res) => {
     let title = req.params.title;
     let id = req.params.id;
     let age = req.params.age;

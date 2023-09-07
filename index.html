@@ -213,8 +213,12 @@
 
   function showNameSearch() {
     let nameSearch = document.querySelector("#nameSearch");
+    let suggestionSearch = document.querySelector("#suggestionSearch");
+
     if (nameSearch.style.display === "none") {
       nameSearch.style.display = "block";
+      suggestionSearch.style.display = "none";
+
     } else {
       nameSearch.style.display = "none";
     }
@@ -222,8 +226,11 @@
 
   function showSuggestionSearch() {
     let suggestionSearch = document.querySelector("#suggestionSearch");
+    let nameSearch = document.querySelector("#nameSearch");
+
     if (suggestionSearch.style.display === "none") {
       suggestionSearch.style.display = "block";
+      nameSearch.style.display = "none";
     } else {
       suggestionSearch.style.display = "none";
     }
