@@ -3,7 +3,7 @@
     "studio": "Microsoft Publishing",
     "outline": "This is a flight simulation game in which players can engage in a variety of flying challenges in several locations. Players can select various aircraft, create training programs, and design flight plans. ",
     "contentIssues": "None",
-    "otherIssues": "n-Game Purchases This game offers players the opportunity to purchase in-game items which some parents or carers may want to be aware of. Parents, carers or other responsible adults should check to see what is being offered before making any purchase on behalf of a child. It should be noted that the game can still be played without the need to purchase such items. ",
+    "otherIssues": "<strong>In-Game Purchases</strong><br><br> This game offers players the opportunity to purchase in-game items which some parents or carers may want to be aware of. Parents, carers or other responsible adults should check to see what is being offered before making any purchase on behalf of a child. It should be noted that the game can still be played without the need to purchase such items. ",
     "rating": {
         "ESRB": "3",
         "PEGI": "3",
@@ -11,6 +11,12 @@
         "USK": "3",
         "GCAM": "3",
         "FPB": "3",
-        "ACB": "3"
+        "MRO": "3",
+        "ACB": "3",
+        "IMDA": "3",
+        "CSRR": "6",
+        "GRAC": "3",
+        "CERO": "3",
+        "PCBP": "3"
     }
 }

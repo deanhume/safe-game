@@ -1,16 +1,23 @@
 {
     "title": "Minecraft",
     "studio": "Mojang",
-    "outline": "determineAgeRating determineAgeRating determineAgeRating determineAgeRating determineAgeRating",
-    "contentIssues": "Fantasy Violence, Fear - From a first-person perspective, players traverse an “open-world” environment, avoid hazards, build new structures, and craft weapons (e.g., swords, axes, bows) to occasionally defend against monsters (e.g., zombies, wolves, skeletons, spiders). Though not encouraged, players can engage in violent acts such as lighting animals on fire and harming animals with weapons. Mild explosions are occasionally heard as players use dynamite to fend off creatures and mine the environment. This game features frightening content that may scare young children. ",
-    "otherIssues": "In-Game Purchases - This game offers players the opportunity to purchase in-game items in the form of Minecoins which some parents or carers may want to be aware of. Parents, carers or other responsible adults should check to see what is being offered before making any purchase on behalf of a child. It should be noted that the game can still be played without the need to purchase such items.",
+    "outline": "Minecraft is an online game where players can build their own environment and communities. Some people refer to it as an online LEGO as you use virtual building blocks to create your own online spaces. These are known on Minecraft as Worlds. The game lets you play alone or with friends.",
+    "contentIssues": "<strong>Fantasy Violence, Fear</strong><br><br>From a first-person perspective, players traverse an “open-world” environment, avoid hazards, build new structures, and craft weapons (e.g., swords, axes, bows) to occasionally defend against monsters (e.g., zombies, wolves, skeletons, spiders). <br><br>Though not encouraged, players can engage in violent acts such as lighting animals on fire and harming animals with weapons. Mild explosions are occasionally heard as players use dynamite to fend off creatures and mine the environment. This game features frightening content that may scare young children. ",
+    "otherIssues": "<strong>In-Game Purchases</strong><br><br>This game offers players the opportunity to purchase in-game items in the form of Minecoins which some parents or carers may want to be aware of. Parents, carers or other responsible adults should check to see what is being offered before making any purchase on behalf of a child. It should be noted that the game can still be played without the need to purchase such items.",
     "rating": {
-        "ESRB": "7",
+        "ESRB": "10",
         "PEGI": "7",
         "DJCTQ": "7",
-        "USK": "7",
+        "USK": "6",
         "GCAM": "7",
         "FPB": "7",
-        "ACB": "7"
+        "MRO": "7",
+        "ACB": "7",
+        "OFLC": "7",
+        "IMDA": "7",
+        "CSRR": "6",
+        "GRAC": "12",
+        "CERO": "7",
+        "PCBP": "6"
     }
 }

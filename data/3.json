@@ -1,9 +1,9 @@
 {
     "title": "Forza Horizon 5",
     "studio": "Playground Games",
-    "outline": "determineAgeRating determineAgeRating determineAgeRating determineAgeRating determineAgeRating",
-    "contentIssues": "Fantasy Violence, Fear - From a first-person perspective, players traverse an “open-world” environment, avoid hazards, build new structures, and craft weapons (e.g., swords, axes, bows) to occasionally defend against monsters (e.g., zombies, wolves, skeletons, spiders). Though not encouraged, players can engage in violent acts such as lighting animals on fire and harming animals with weapons. Mild explosions are occasionally heard as players use dynamite to fend off creatures and mine the environment. This game features frightening content that may scare young children. ",
-    "otherIssues": "In-Game Purchases - This game offers players the opportunity to purchase in-game items in the form of Minecoins which some parents or carers may want to be aware of. Parents, carers or other responsible adults should check to see what is being offered before making any purchase on behalf of a child. It should be noted that the game can still be played without the need to purchase such items.",
+    "outline": "This is an open world driving racing simulation game, set in Mexico, in which players assume the role of a veteran driver helping to expand the Horizon Festival to Mexico. Players can compete in a variety of racing events to earn accolades and upgrades. ",
+    "contentIssues": "Collisions can result in scratches and dents to cars but it is not possible to injure human characters. ",
+    "otherIssues": "<strong>In-Game Purchases</strong><br><br>This game offers players the opportunity to purchase in-game items, in the form of additional content such as cars, which some parents or carers may want to be aware of. Parents, carers or other responsible adults should check to see what is being offered before making any purchase on behalf of a child. It should be noted that the game can still be played without the need to purchase such items. ",
     "rating": {
         "ESRB": "3",
         "PEGI": "3",
@@ -11,6 +11,13 @@
         "USK": "3",
         "GCAM": "3",
         "FPB": "3",
-        "ACB": "3"
+        "MRO": "3",
+        "ACB": "3",
+        "OFLC": "3",
+        "IMDA": "3",
+        "CSRR": "3",
+        "GRAC": "3",
+        "CERO": "12",
+        "PCBP": "6"
     }
 }

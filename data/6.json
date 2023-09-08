@@ -2,15 +2,21 @@
     "title": "Sea of Thieves",
     "studio": "Rare",
     "outline": "This is an action-adventure game in which players assume the role of a pirate exploring a vast open world of oceans and islands. From a first-person perspective, players complete quests and explore the seas and remote islands for treasure and resources.  ",
-    "contentIssues": "Crude Humor, Use of Alcohol, Violence On the open seas, players can engage in sea battles against other pirate ships by using cannons and harpoons; on land, players can use pistols and swords to battle enemies (e.g., skeletons, ghosts) in frenetic combat. Battles are highlighted by realistic gunfire, sword-slashing effects, and large explosions. During the course of the game, the players' character can drink mugs of grog, which can result in screen-blurring and the character belching and hiccupping. Consuming too much grog can cause the players' character to vomit green liquid. ",
+    "contentIssues": "<strong>Crude Humor, Use of Alcohol, Violence</strong><br><br> On the open seas, players can engage in sea battles against other pirate ships by using cannons and harpoons; on land, players can use pistols and swords to battle enemies (e.g., skeletons, ghosts) in frenetic combat. <br><br>Battles are highlighted by realistic gunfire, sword-slashing effects, and large explosions. During the course of the game, the players' character can drink mugs of grog, which can result in screen-blurring and the character belching and hiccupping. Consuming too much grog can cause the players' character to vomit green liquid. ",
     "otherIssues": "",
     "rating": {
         "ESRB": "12",
         "PEGI": "12",
         "DJCTQ": "12",
         "USK": "12",
-        "GCAM": "12",
-        "FPB": "12",
-        "ACB": "12"
+        "GCAM": "16",
+        "FPB": "16",
+        "MRO": "12",
+        "ACB": "12",
+        "IMDA": "12",
+        "CSRR": "15",
+        "GRAC": "15",
+        "CERO": "12",
+        "PCBP": "12"
     }
 }

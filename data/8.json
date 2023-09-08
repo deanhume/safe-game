@@ -2,15 +2,22 @@
     "title": "Starfield",
     "studio": "Bethesda Game Studios",
     "outline": "This is an open-world role-playing game in which players assume the role of a miner tasked with finding Artifacts across the galaxy. From first-/third-person perspectives, players interact with various characters, complete quests, and search for supplies while battling enemies (e.g., humans, robots, alien creatures). ",
-    "contentIssues": "Blood, Strong Language, Suggestive Themes, Use of Drugs, Violence Players use futuristic guns, lasers, axes, and explosives to kill enemies. Combat is fast-paced, with frequent gunfire, cries of pain, and explosions. Attacks on some enemies can result in blood-splatter effects; several environments depict blood stains on the ground around corpses. The game contains some suggestive material in the dialogue, and after sharing a bed with characters (e.g., “Life is a sexually transmitted disease that's a hundred percent fatal”; “I'm all for getting a little wild, but next time let's try it without the jetpacks”; “Talk about seeing stars, whew… that was amazing.”). A fictional drug (Aurora) is prominent in the game, with a section involving players' characters working in an illicit drug lab; players can also obtain Aurora by stealing or buying it from vendors (consuming Aurora results in a distortion effect on the screen). The words “f**k” and “bullsh*t” appear in the game. ",
+    "contentIssues": "<strong>Blood, Strong Language, Suggestive Themes, Use of Drugs, Violence Players use futuristic guns, lasers, axes, and explosives to kill enemies.</strong><br><br> Combat is fast-paced, with frequent gunfire, cries of pain, and explosions. Attacks on some enemies can result in blood-splatter effects; several environments depict blood stains on the ground around corpses.<br><br> The game contains some suggestive material in the dialogue, and after sharing a bed with characters (e.g., “Life is a sexually transmitted disease that's a hundred percent fatal”; “I'm all for getting a little wild, but next time let's try it without the jetpacks”; “Talk about seeing stars, whew… that was amazing.”). <br><br>A fictional drug (Aurora) is prominent in the game, with a section involving players' characters working in an illicit drug lab; players can also obtain Aurora by stealing or buying it from vendors (consuming Aurora results in a distortion effect on the screen). The words “f**k” and “bullsh*t” appear in the game. ",
     "otherIssues": "",
     "rating": {
         "ESRB": "18",
         "PEGI": "18",
-        "DJCTQ": "18",
-        "USK": "18",
+        "DJCTQ": "16",
+        "USK": "16",
         "GCAM": "18",
-        "FPB": "18",
-        "ACB": "18"
+        "FPB": "16",
+        "MRO": "Banned",
+        "ACB": "18",
+        "IMDA": "18",
+        "OFLC": "16",
+        "CSRR": "18",
+        "GRAC": "18",
+        "CERO": "18",
+        "PCBP": "Banned"
     }
 }
