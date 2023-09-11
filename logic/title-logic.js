@@ -1,9 +1,20 @@
-
 const path = require('path');
 const fs = require("fs");
 const { determineAgeRating, getLocationDetails } = require('./country-rating-logic.js');
 
+/**
+ * Builds the HTML for the age rating
+ * @param {int} enteredAge 
+ * @param {string} result 
+ * @param {string} title 
+ * @returns 
+ */
 function buildAgeRatingHtml(enteredAge, result, title) {
+
+    // Is the title banned in this location?
+    if (result.isBanned) {
+        return `<div class="relative bg-red-600 isolate px-6 lg:px-8"><div class="mx-auto max-w-2xl" style="padding-top: 8rem;padding-bottom: 5rem;"><div class="hidden sm:mb-8 sm:flex sm:justify-center"></div><div class="text-center"><h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl text-white">Unfortunately, ${title} is not available in your country.</h1></div></div></div>`;
+    }
 
     // Then decide if the title is safe for the entered age and return the HTML
     if (enteredAge < result.titleAgeRating) {
@@ -15,10 +26,14 @@ function buildAgeRatingHtml(enteredAge, result, title) {
 
 }
 
-// TODO: Update this to include the correct alternate titles based on age
+/**
+ * Loads the alternate title HTML based on the age entered
+ * @param {int} age 
+ * @returns 
+ */
 function loadAlternateTitle(age) {
 
-    let filePath = "";
+    let filePath = '';
 
     if (age <= 7) {
         filePath = path.join(__dirname, '/../alternate-titles/age3.html');
@@ -47,7 +62,7 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     const buffer = fs.readFileSync(path.join(__dirname, '/../title-details.html'));
     const fileContent = buffer.toString();
     const location = getLocationDetails(ipAddress);
-    
+
     // Load the ratings json file
     const jsonDetails = fs.readFileSync(path.join(__dirname, `/../data/${id}.json`));
     let details = JSON.parse(jsonDetails);
@@ -78,23 +93,27 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     htmlToReturn = htmlToReturn.replace("<!--{{age}}-->", age);
 
     // Display the correct Ratings image
-    // TODO: Need to fix this properly
     htmlToReturn = htmlToReturn.replace("<!--{{ratingsImageUrl}}-->", ageRating.ratingImage);
 
-    htmlToReturn = htmlToReturn.replace("<!--{{ipAddress}}-->", `${ipAddress}-${location.country}`);
+    // For testing purposes
+    //htmlToReturn = htmlToReturn.replace("<!--{{ipAddress}}-->", `${ipAddress}-${location.country}`);
 
     // Replace the country in the HTML file
     htmlToReturn = htmlToReturn.replace("<!--{{Location}}-->", `<strong>${location.country}</strong>`);
     return htmlToReturn;
 }
 
+/**
+ * Builds the alternative title suggestion HTML
+ * @param {string} location 
+ * @param {int} age 
+ * @returns 
+ */
 function buildSuggestionDetails(location, age) {
     const buffer = fs.readFileSync(path.join(__dirname, '/../suggestion.html'));
     let fileContent = buffer.toString();
 
     fileContent = fileContent.replace("<!--{{EnteredAge}}-->", age);
-
-    // TODO: Think about different locations and the appropriate age suggestions
     fileContent = fileContent.replace("<!--{{alternateTitle}}-->", loadAlternateTitle(age));
 
     return fileContent;
