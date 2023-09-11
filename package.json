@@ -2,7 +2,8 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
-    "geoip-lite": "^1.4.7"
+    "geoip-lite": "^1.4.7",
+    "i18n-iso-countries": "^7.6.0"
   },
   "name": "safe-game",
   "description": "Check whether or not a given game is safe for your child to play. Does the game contain violence? Swearing?",

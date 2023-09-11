@@ -1,4 +1,5 @@
 const { lookup } = require('geoip-lite');
+const countries = require('i18n-iso-countries');
 
 /**
  * Get the country location from the IP address
@@ -32,6 +33,15 @@ function returnAllESRB() {
  */
 function returnAllPEGI() {
     return ["AL", "AT", "BE", "BA", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "GR", "HU", "IS", "IN", "IE", "IL", "IT", "LV", "LI", "LT", "LU", "MK", "MT", "MD", "ME", "NL", "NO", "PL", "PT", "RO", "RS", "SK", "SI", "ES", "SE", "CH", "TR", "GB"];
+}
+
+/**
+ * Returns a user friendly country name from the country code
+ * @param {string} countryCode 
+ * @returns 
+ */
+function getUserFriendlyCountryNameFromCountryCode(countryCode) {
+    return countries.getName(countryCode, "en");
 }
 
 /**
@@ -98,7 +108,7 @@ function determineAgeRating(enteredAge, ipAddress, details, countryOverride) {
         ratingImage = `/images/gcam/${details.rating.GCAM}.png`;
     } else if (location.country == "AE") {
         titleAgeRating = parseInt(details.rating.MRO);
-        ratingImage = `/images/mro/${details.rating.MRO}.svg`;
+        ratingImage = `/images/mro/${details.rating.MRO}.png`;
     } else if (location.country == "TW") {
         titleAgeRating = parseInt(details.rating.CSRR);
         ratingImage = `/images/csrr/${details.rating.CSRR}.svg`;
@@ -112,8 +122,8 @@ function determineAgeRating(enteredAge, ipAddress, details, countryOverride) {
     }
     // IARC - This is the default fallback for countries that don't have a rating system 
     else {
-        titleAgeRating = parseInt(details.rating.ESRB);
-        ratingImage = `/images/IARC/${details.rating.ESRB}.svg`;
+        titleAgeRating = parseInt(details.rating.PEGI);
+        ratingImage = `/images/IARC/${details.rating.PEGI}.svg`;
     }
 
     // One last check to see if the title is banned, and return the correct image
@@ -125,4 +135,4 @@ function determineAgeRating(enteredAge, ipAddress, details, countryOverride) {
 
 }
 
-module.exports = { determineAgeRating, getCountryLocation, getLocationDetails };
+module.exports = { determineAgeRating, getCountryLocation, getLocationDetails, getUserFriendlyCountryNameFromCountryCode };

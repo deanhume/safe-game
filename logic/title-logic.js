@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require("fs");
-const { determineAgeRating, getLocationDetails } = require('./country-rating-logic.js');
+const { determineAgeRating, getLocationDetails, getUserFriendlyCountryNameFromCountryCode } = require('./country-rating-logic.js');
 
 /**
  * Builds the HTML for the age rating
@@ -99,7 +99,7 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     //htmlToReturn = htmlToReturn.replace("<!--{{ipAddress}}-->", `${ipAddress}-${location.country}`);
 
     // Replace the country in the HTML file
-    htmlToReturn = htmlToReturn.replace("<!--{{Location}}-->", `<strong>${location.country}</strong>`);
+    htmlToReturn = htmlToReturn.replace("<!--{{Location}}-->", `<strong>${getUserFriendlyCountryNameFromCountryCode(location.country)}</strong>`);
     return htmlToReturn;
 }
 
