@@ -95,7 +95,7 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     // Display the correct Ratings image
     htmlToReturn = htmlToReturn.replace("<!--{{ratingsImageUrl}}-->", ageRating.ratingImage);
 
-    // For testing purposes
+    // For testing
     //htmlToReturn = htmlToReturn.replace("<!--{{ipAddress}}-->", `${ipAddress}-${location.country}`);
 
     // Replace the country in the HTML file
@@ -105,16 +105,21 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
 
 /**
  * Builds the alternative title suggestion HTML
- * @param {string} location 
+ * @param {string} ipAddress 
  * @param {int} age 
  * @returns 
  */
-function buildSuggestionDetails(location, age) {
+function buildSuggestionDetails(ipAddress, age) {
     const buffer = fs.readFileSync(path.join(__dirname, '/../suggestion.html'));
     let fileContent = buffer.toString();
 
+    const location = getLocationDetails(ipAddress);
+
     fileContent = fileContent.replace("<!--{{EnteredAge}}-->", age);
     fileContent = fileContent.replace("<!--{{alternateTitle}}-->", loadAlternateTitle(age));
+
+    // Replace the country in the HTML file
+    fileContent = fileContent.replace("<!--{{Location}}-->", `<strong>${location.country}</strong>`);
 
     return fileContent;
 
