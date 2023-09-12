@@ -21,7 +21,7 @@
         "PCBP": "12"
     },
     "storeLink":{
-        "Steam": "https://store.steampowered.com/app/813780/Age_of_Empires_II_Definitive_Edition/",
-        "Microsoft Store": "https://www.xbox.com/en-GB/games/age-of-empires-ii-definitive-edition#purchaseoptions"
+        "steam": "https://store.steampowered.com/app/813780/Age_of_Empires_II_Definitive_Edition/",
+        "xbox": "https://www.xbox.com/en-GB/games/age-of-empires-ii-definitive-edition#purchaseoptions"
     }
 }

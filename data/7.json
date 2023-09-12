@@ -18,5 +18,9 @@
         "GRAC": "3",
         "CERO": "3",
         "PCBP": "3"
+    },
+    "storeLink":{
+        "steam": "https://store.steampowered.com/app/1250410/Microsoft_Flight_Simulator_40th_Anniversary_Edition/",
+        "xbox": "https://www.xbox.com/en-gb/games/store/microsoft-flight-simulator/9nrrjllxm68v"
     }
 }

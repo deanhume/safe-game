@@ -19,5 +19,9 @@
         "GRAC": "3",
         "CERO": "12",
         "PCBP": "6"
+    },
+    "storeLink":{
+        "steam": "https://store.steampowered.com/app/1551360/Forza_Horizon_5/",
+        "xbox": "https://www.xbox.com/en-gb/games/store/forza-horizon-5/9nnx1vvr3knq"
     }
 }

@@ -19,5 +19,9 @@
         "GRAC": "18",
         "CERO": "18",
         "PCBP": "Banned"
+    },
+    "storeLink":{
+        "steam": "https://store.steampowered.com/agecheck/app/1716740/",
+        "xbox": "https://www.xbox.com/en-gb/games/store/starfield/9ncjsxwztp88"
     }
 }

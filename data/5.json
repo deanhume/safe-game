@@ -18,5 +18,9 @@
         "GRAC": "12",
         "CERO": "15",
         "PCBP": "12"
+    },
+    "storeLink":{
+        "steam": "https://store.steampowered.com/app/962130/Grounded/",
+        "xbox": "https://www.xbox.com/en-gb/games/store/grounded/9pjthrnvh62h"
     }
 }

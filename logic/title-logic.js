@@ -82,6 +82,8 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     detailsContent = detailsContent.replace("<!--{{alternateTitle}}-->", loadAlternateTitle(age));
     detailsContent = detailsContent.replace("<!--{{imageUrl}}-->", `/images/${id}.png`);
     detailsContent = detailsContent.replace("<!--{{age}}-->", age);
+    detailsContent = detailsContent.replace("<!--{{steamStoreLink}}-->", details.storeLink.steam);
+    detailsContent = detailsContent.replace("<!--{{xboxStoreLink}}-->", details.storeLink.xbox);
 
     // Append the ratings details based on the location
     let htmlToReturn = fileContent.replace("<!--{{Details}}-->", detailsContent);

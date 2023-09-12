@@ -19,5 +19,9 @@
         "GRAC": "12",
         "CERO": "12",
         "PCBP": "12"
+    },
+    "storeLink":{
+        "steam": "https://store.steampowered.com/app/1928870/Minecraft_Legends/",
+        "xbox": "https://www.xbox.com/en-gb/games/store/minecraft-legends/9nf0d13rpx5l"
     }
 }

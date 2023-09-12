@@ -18,5 +18,9 @@
         "GRAC": "15",
         "CERO": "17",
         "PCBP": "17"
+    },
+    "storeLink":{
+        "steam": "https://store.steampowered.com/app/1708091/Halo_Infinite_Campaign/",
+        "xbox": "https://www.xbox.com/en-GB/games/store/halo-infinite-campaign/9NP1P1WFS0LB/0010/9WQW7GFRZ17K"
     }
 }

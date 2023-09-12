@@ -18,5 +18,9 @@
         "GRAC": "15",
         "CERO": "12",
         "PCBP": "12"
+    },
+    "storeLink":{
+        "steam": "https://store.steampowered.com/app/1172620/Sea_of_Thieves_2023_Edition/",
+        "xbox": "https://www.xbox.com/en-gb/games/store/sea-of-thieves-2023-edition/9p2n57mc619k"
     }
 }

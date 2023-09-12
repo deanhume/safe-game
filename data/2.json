@@ -19,5 +19,9 @@
         "GRAC": "12",
         "CERO": "7",
         "PCBP": "6"
+    },
+    "storeLink":{
+        "steam": "https://www.xbox.com/en-GB/games/store/minecraft/9mvxmvt8zkwc",
+        "xbox": "https://www.xbox.com/en-GB/games/store/minecraft/9mvxmvt8zkwc"
     }
 }
