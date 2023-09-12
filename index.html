@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/images/Xbox_Logo.svg" type="image/svg+xml">
+  <meta name="description" content="Xbox SafeGame - Is this game safe for your child?">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -11,6 +13,9 @@
       let gameName = document.getElementById('game-name').value;
       let childAge = document.getElementById('child-age').value;
       let id = document.getElementById('id').value;
+
+      // Prettify the url
+      gameName = gameName.replace(/ /g, "-").toLowerCase();
 
       let url = `/title/${gameName}/${id}/${childAge}`;
 
@@ -51,7 +56,8 @@
             <div class="mt-10">
               <!-- Decorative image grid -->
               <div aria-hidden="true"
-                class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl" style="padding-top: 150px;">
+                class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
+                style="padding-top: 150px;">
                 <div
                   class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                   <div class="flex items-center space-x-6 lg:space-x-8">
@@ -94,51 +100,52 @@
                 onclick="showNameSearch()">Search by games name</a>
             </div>
 
-<!-- Name search -->
-<form action="/title" method="get" onsubmit="return validateForm();" id="nameSearch" style="display: none;">
-  <p class="mt-6 text-lg leading-8 text-gray-600" style="width: 600px;">Enter the name of the game and the age of your child to
-    determine whether or not it is safe.</p>
-  <div class="mt-6 flex gap-x-4 " >
-    <!-- Drop down Selector -->
-    <div onclick="event.stopImmediatePropagation();">
-      <label for="game-name" class="sr-only">Game Name</label>
-      <input id="game-name" name="game-name" type="text" required
-        class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Game Name"
-        onkeyup="onkeyUp(event)">
-      <div id="dropdown"
-        class="-60 border border-gray-300 rounded-md bg-white absolute overflow-y-auto hidden"></div>
+            <!-- Name search -->
+            <form action="/title" method="get" onsubmit="return validateForm();" id="nameSearch" style="display: none;">
+              <p class="mt-6 text-xl leading-8 text-gray-500" style="width: 600px;">Enter the name of the game and the
+                age of your child to
+                determine whether or not it is safe.</p>
+              <div class="mt-6 flex gap-x-4 ">
+                <!-- Drop down Selector -->
+                <div onclick="event.stopImmediatePropagation();">
+                  <label for="game-name" class="sr-only">Game Name</label>
+                  <input id="game-name" name="game-name" type="text" required
+                    class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Game Name"
+                    onkeyup="onkeyUp(event)">
+                  <div id="dropdown"
+                    class="-60 border border-gray-300 rounded-md bg-white absolute overflow-y-auto hidden"></div>
 
-      <input type="hidden" id="id" name="id" />
-    </div>
+                  <input type="hidden" id="id" name="id" />
+                </div>
 
 
-    <label for="child-age" class="sr-only">Child Age</label>
-    <input id="child-age" name="child-age" type="number" required
-      class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Child Age">
+                <label for="child-age" class="sr-only">Child Age</label>
+                <input id="child-age" name="child-age" type="number" required
+                  class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Child Age">
 
-    <input type="submit"
-      class="flex-none rounded-md bg-green-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
-      value="Check">
-  </div>
+                <input type="submit"
+                  class="flex-none rounded-md bg-green-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+                  value="Check">
+              </div>
 
-</form>
+            </form>
 
-<!-- Suggestion Search  -->
-<form action="/suggest" method="get" onsubmit="return validateSuggestionForm();" id="suggestionSearch" style="display: none;">
-  <p class="mt-6 text-lg leading-8 text-gray-600">Enter the age of your child to and we'll suggest appropriate games.</p>
-  <div class="mt-6 flex gap-x-4 " >
+            <!-- Suggestion Search  -->
+            <form action="/suggest" method="get" onsubmit="return validateSuggestionForm();" id="suggestionSearch"
+              style="display: none;">
+              <p class="mt-6 text-xl leading-8 text-gray-500">Enter the age of your child to and we'll suggest
+                appropriate games.</p>
+              <div class="mt-6 flex gap-x-4 ">
 
-    <label for="suggestion-child-age" class="sr-only">Child Age</label>
-    <input id="suggestion-child-age" name="suggestion-child-age" type="number" required
-      class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Child Age">
+                <label for="suggestion-child-age" class="sr-only">Child Age</label>
+                <input id="suggestion-child-age" name="suggestion-child-age" type="number" required
+                  class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Child Age">
 
-    <input type="submit"
-      class="flex-none rounded-md bg-slate-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
-      value="Suggest">
-  </div>
-
-</form>
-
+                <input type="submit"
+                  class="flex-none rounded-md bg-slate-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
+                  value="Suggest">
+              </div>
+            </form>
 
           </div>
         </div>
