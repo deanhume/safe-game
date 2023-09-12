@@ -100,6 +100,9 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     // For testing
     //htmlToReturn = htmlToReturn.replace("<!--{{ipAddress}}-->", `${ipAddress}-${location.country}`);
 
+    // Html title
+    htmlToReturn = htmlToReturn.replace("<!--{{gameTitle}}-->", details.title);
+
     // Replace the country in the HTML file
     htmlToReturn = htmlToReturn.replace("<!--{{Location}}-->", `<strong>${getUserFriendlyCountryNameFromCountryCode(location.country)}</strong>`);
     return htmlToReturn;
