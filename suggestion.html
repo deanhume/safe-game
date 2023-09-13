@@ -8,26 +8,34 @@
   <link rel="icon" href="/images/Xbox_Logo.svg" type="image/svg+xml">
   <meta name="description" content="Xbox SafeGame - Is this game safe for your child?">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media screen and (max-width: 600px) {
+      .hideElement {
+        display: none !important;
+      }
+
+      .logo {
+        padding-top: 28px;
+        margin: auto;
+        width: 20%;
+      }
+    }
+
+    @media screen and (min-width: 601px) {
+      .logo {
+        padding-top: 48px;
+        margin: auto;
+        width: 4%;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
   <div>
-    <header class="absolute inset-x-0 top-0 z-50">
-      <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div class="flex lg:flex-1">
-        </div>
-        <div class="flex lg:hidden">
-        </div>
-        <div class="lg:flex lg:gap-x-12">
-          <a href="/">
-            <img class="w-auto" style="height: 5rem;" src="/images/Xbox_Logo_white.svg" alt="">
-          </a>
-        </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900"></a>
-        </div>
-      </nav>
-
+    <header class="absolute inset-x-0 top-0 z-50 logo">
+      <a href="/"><img width="200px" height="200px" src="/images/Xbox_Logo_white.svg" alt="Xbox Logo"></a>
     </header>
 
     <div class="relative bg-green-600 isolate px-6 lg:px-8">
