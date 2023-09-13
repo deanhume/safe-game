@@ -4,6 +4,7 @@
     "outline": "This is an open world driving racing simulation game, set in Mexico, in which players assume the role of a veteran driver helping to expand the Horizon Festival to Mexico. Players can compete in a variety of racing events to earn accolades and upgrades. ",
     "contentIssues": "Collisions can result in scratches and dents to cars but it is not possible to injure human characters. ",
     "otherIssues": "<button class=\"bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full\">In-Game Purchases</button><br><br>This game offers players the opportunity to purchase in-game items, in the form of additional content such as cars, which some parents or carers may want to be aware of. Parents, carers or other responsible adults should check to see what is being offered before making any purchase on behalf of a child. It should be noted that the game can still be played without the need to purchase such items. ",
+    "platforms": "Windows PC, Xbox One, Xbox Series X|S",
     "rating": {
         "ESRB": "0",
         "PEGI": "3",

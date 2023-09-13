@@ -84,6 +84,7 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     detailsContent = detailsContent.replace("<!--{{age}}-->", age);
     detailsContent = detailsContent.replace("<!--{{steamStoreLink}}-->", details.storeLink.steam);
     detailsContent = detailsContent.replace("<!--{{xboxStoreLink}}-->", details.storeLink.xbox);
+    detailsContent = detailsContent.replace("<!--{{platforms}}-->", details.platforms);
 
     // Hide the content issues section if there are no content issues
     if (details.otherIssues === '') {

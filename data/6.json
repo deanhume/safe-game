@@ -4,6 +4,7 @@
     "outline": "This is an action-adventure game in which players assume the role of a pirate exploring a vast open world of oceans and islands. From a first-person perspective, players complete quests and explore the seas and remote islands for treasure and resources.  ",
     "contentIssues": "<button class=\"bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full\">Crude Humor</button> <button class=\"bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full\">Use of Alcohol</button> <button class=\"bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full\">Violence</button><br><br> On the open seas, players can engage in sea battles against other pirate ships by using cannons and harpoons; on land, players can use pistols and swords to battle enemies (e.g., skeletons, ghosts) in frenetic combat. <br><br>Battles are highlighted by realistic gunfire, sword-slashing effects, and large explosions. During the course of the game, the players' character can drink mugs of grog, which can result in screen-blurring and the character belching and hiccupping. Consuming too much grog can cause the players' character to vomit green liquid. ",
     "otherIssues": "",
+    "platforms": "Windows PC, Xbox One, Xbox Series X|S",
     "rating": {
         "ESRB": "13",
         "PEGI": "12",
