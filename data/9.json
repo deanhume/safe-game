@@ -2,7 +2,7 @@
     "title": "Ori and the Blind Forest",
     "studio": "Microsoft Studios",
     "outline": "This is an action-platformer in which players help a forest spirit (Ori) restore life to a dying forest. As players traverse side-scrolling environments, they solve puzzles and use a Spirit Flame light attack to defeat enemy creatures (e.g., slimes, birds, spiders). Enemies fall over and/or disappear amid colorful bursts of light when defeated. ",
-    "contentIssues": "<strong>Mild Fantasy Violence</strong><br><br> This game feature flashy, over-the-top combat between fantasy characters. The violence found in this combat is unrealistic, as are reactions to it; enemies flash on being hit and disappear when defeated. Next to that, it also feature monsters and creatures with designs that would likely scare young children.",
+    "contentIssues": "<button class=\"bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full\">Mild Fantasy Violence</button><br><br> This game feature flashy, over-the-top combat between fantasy characters. The violence found in this combat is unrealistic, as are reactions to it; enemies flash on being hit and disappear when defeated. Next to that, it also feature monsters and creatures with designs that would likely scare young children.",
     "otherIssues": "",
     "rating": {
         "ESRB": "0",

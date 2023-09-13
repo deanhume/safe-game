@@ -11,16 +11,21 @@
 
   <script>
     function validateForm() {
-      let gameName = document.getElementById('game-name').value;
-      let childAge = document.getElementById('child-age').value;
-      let id = document.getElementById('id').value;
+      const gameNameSelect = document.getElementById('game-name');
+      const childAge = document.getElementById('child-age').value;
+
+      const id = gameNameSelect.options[gameNameSelect.selectedIndex].value;
+      let gameName = gameNameSelect.options[gameNameSelect.selectedIndex].text;
+
+      // Check for null entry
+      if (id == 0){
+        return false;
+      }
 
       // Prettify the url
       gameName = gameName.replace(/ /g, "-").toLowerCase();
 
-      let url = `/title/${gameName}/${id}/${childAge}`;
-
-      location.href = url;
+      location.href = `/title/${gameName}/${id}/${childAge}`;
       return false;
     }
 
@@ -34,6 +39,50 @@
     }
   </script>
 
+  <style>
+    .custom-select {
+      min-width: 350px;
+      position: relative;
+    }
+
+    select {
+      appearance: none;
+      /*  safari  */
+      -webkit-appearance: none;
+      /*  other styles for aesthetics */
+      width: 100%;
+      border: 1px solid #caced1;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      height: 50px;
+      color: white;
+      font-weight: 500;
+      padding-left: 20px !important;
+    }
+
+    .custom-select::before,
+    .custom-select::after {
+      --size: 0.3rem;
+      content: "";
+      position: absolute;
+      right: 1rem;
+      pointer-events: none;
+    }
+
+    .custom-select::before {
+      border-left: var(--size) solid transparent;
+      border-right: var(--size) solid transparent;
+      border-bottom: var(--size) solid black;
+      top: 40%;
+    }
+
+    .custom-select::after {
+      border-left: var(--size) solid transparent;
+      border-right: var(--size) solid transparent;
+      border-top: var(--size) solid black;
+      top: 55%;
+    }
+  </style>
 </head>
 
 <body>
@@ -50,8 +99,8 @@
           <div class="sm:max-w-lg">
             <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Is this game safe for your child?
             </h1>
-            <p class="mt-4 text-xl text-gray-500">Are you struggling to work out age appropriate games for your
-              child to play? Let us help you decide with this handy tool.</p>
+            <p class="mt-4 text-xl text-gray-500">Are you struggling to work out age appropriate games for your child to
+              play? Let us help you decide with this handy tool.</p>
           </div>
           <div>
             <div class="mt-10">
@@ -120,20 +169,26 @@
 
             <!-- Name search -->
             <form action="/title" method="get" onsubmit="return validateForm();" id="nameSearch" style="display: none;">
-              <p class="mt-6 text-xl leading-8 text-gray-500" style="width: 600px;">Enter the name of the game and the
-                age of your child to
-                determine whether or not it is safe.</p>
+              <p class="mt-6 text-xl leading-8 text-gray-500" style="width: 600px;">Choose the name of the game and the
+                age of your child to determine whether or not it is safe.</p>
               <div class="mt-6 flex gap-x-4 ">
-                <!-- Drop down Selector -->
-                <div onclick="event.stopImmediatePropagation();">
-                  <label for="game-name" class="sr-only">Game Name</label>
-                  <input id="game-name" name="game-name" type="text" required
-                    class="px-5 py-3 border border-gray-300 rounded-md" placeholder="Game Name"
-                    onkeyup="onkeyUp(event)">
-                  <div id="dropdown"
-                    class="-60 border border-gray-300 rounded-md bg-white absolute overflow-y-auto hidden"></div>
 
-                  <input type="hidden" id="id" name="id" />
+
+                <!-- here -->
+                <div class="custom-select">
+                  <select id="game-name">
+                    <option value="0" disabled selected>Choose a game</option>
+                    <option value="1">Halo Infinite</option>
+                    <option value="2">Minecraft</option>
+                    <option value="3">Forza Horizon 5</option>
+                    <option value="4">Minecraft Legends</option>
+                    <option value="5">Grounded</option>
+                    <option value="6">Sea of Thieves</option>
+                    <option value="7">Microsoft Flight Simulator</option>
+                    <option value="8">Starfield</option>
+                    <option value="9">Ori and the Blind Forest</option>
+                    <option value="10">Age of Empires II DE</option>
+                  </select>
                 </div>
 
 
@@ -170,56 +225,6 @@
     { name: "Age of Empires II DE ", code: "10" },
   ];
 
-  function onkeyUp(e) {
-    let keyword = e.target.value;
-    let dropdownEl = document.querySelector("#dropdown");
-    dropdownEl.classList.remove("hidden");
-    let filteredGames = games.filter((c) =>
-      c.name.toLowerCase().includes(keyword.toLowerCase())
-    );
-
-    renderOptions(filteredGames);
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    renderOptions(games);
-  });
-
-  function renderOptions(options) {
-    let dropdownEl = document.querySelector("#dropdown");
-
-    let newHtml = ``;
-
-    options.forEach((country) => {
-      newHtml += `<div
-              onclick="selectOption('${country.name}', '${country.code}')"
-              class="px-5 py-3 border-b border-gray-200 text-stone-600 cursor-pointer hover:bg-slate-100 transition-colors"
-            >
-              ${country.name}
-            </div>`;
-    });
-
-    dropdownEl.innerHTML = newHtml;
-  }
-
-  function selectOption(countryName, countryCode) {
-    hideDropdown();
-    let input = document.querySelector("#game-name");
-    input.value = countryName;
-
-    let id = document.querySelector("#id");
-    id.value = countryCode;
-
-  }
-
-  document.addEventListener("click", () => {
-    hideDropdown();
-  });
-
-  function hideDropdown() {
-    let dropdownEl = document.querySelector("#dropdown");
-    dropdownEl.classList.add("hidden");
-  }
 
   function showNameSearch() {
     let nameSearch = document.querySelector("#nameSearch");
