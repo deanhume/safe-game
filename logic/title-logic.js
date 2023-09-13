@@ -99,11 +99,11 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     // Replace the age in the HTML file
     htmlToReturn = htmlToReturn.replace("<!--{{age}}-->", age);
 
-    // Display the correct Ratings image
+    // Display the ratings details
     htmlToReturn = htmlToReturn.replace("<!--{{ratingsImageUrl}}-->", ageRating.ratingImage);
-
-    // For testing
-    //htmlToReturn = htmlToReturn.replace("<!--{{ipAddress}}-->", `${ipAddress}-${location.country}`);
+    htmlToReturn = htmlToReturn.replace("<!--{{ratedAge}}-->", ageRating.titleAgeRating);
+    htmlToReturn = htmlToReturn.replace("<!--{{ratedAge2}}-->", ageRating.titleAgeRating);
+    htmlToReturn = htmlToReturn.replace("<!--{{ratingAuthority}}-->", ageRating.ratingAuthority);
 
     // Html title
     htmlToReturn = htmlToReturn.replace("<!--{{gameTitle}}-->", details.title);
@@ -129,7 +129,7 @@ function buildSuggestionDetails(ipAddress, age) {
     fileContent = fileContent.replace("<!--{{alternateTitle}}-->", loadAlternateTitle(age));
 
     // Replace the country in the HTML file
-    fileContent = fileContent.replace("<!--{{Location}}-->", `<strong>${location.country}</strong>`);
+    fileContent = fileContent.replace("<!--{{Location}}-->", `<strong>${getUserFriendlyCountryNameFromCountryCode(location.country)}</strong>`);
 
     return fileContent;
 
