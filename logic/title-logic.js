@@ -85,6 +85,11 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     detailsContent = detailsContent.replace("<!--{{steamStoreLink}}-->", details.storeLink.steam);
     detailsContent = detailsContent.replace("<!--{{xboxStoreLink}}-->", details.storeLink.xbox);
 
+    // Hide the content issues section if there are no content issues
+    if (details.otherIssues === '') {
+        detailsContent = detailsContent.replace("{{hideIssues}}", "display: none;");
+    }
+
     // Append the ratings details based on the location
     let htmlToReturn = fileContent.replace("<!--{{Details}}-->", detailsContent);
 
