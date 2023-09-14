@@ -70,8 +70,7 @@ app.listen(port, () => {
  */
 function getIpAddress(req) {
 
-    //const ip = requestIp.getClientIp(req);
-    const ip = '81.152.36.114';
-
+    const ip = requestIp.getClientIp(req);
+    
     return ip;
 }
