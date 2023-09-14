@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
+const requestIp = require('request-ip');
 
 const port = process.env.PORT || 3000;
 
@@ -47,6 +48,16 @@ app.get('/suggest/:age', (req, res) => {
     res.send(htmlToReturn);
 })
 
+/**
+ * Used to test the IP address
+ */
+app.get('/testip', (req, res) => {
+
+    const ipAddress = getIpAddress(req)
+    
+    res.send(ipAddress);
+})
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
@@ -58,14 +69,9 @@ app.listen(port, () => {
  * @returns 
  */
 function getIpAddress(req) {
-    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
-    console.log(req.connection.remoteAddress);
-
-    // If the IP address is localhost, use my IP address
-    if (ip = "::1") {
-        ip = "81.152.36.114";
-    }
+    //const ip = requestIp.getClientIp(req);
+    const ip = '81.152.36.114';
 
     return ip;
 }
