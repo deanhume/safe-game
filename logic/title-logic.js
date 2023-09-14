@@ -105,6 +105,7 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
     htmlToReturn = htmlToReturn.replace("<!--{{ratedAge}}-->", ageRating.titleAgeRating);
     htmlToReturn = htmlToReturn.replace("<!--{{ratedAge2}}-->", ageRating.titleAgeRating);
     htmlToReturn = htmlToReturn.replace("<!--{{ratingAuthority}}-->", ageRating.ratingAuthority);
+    htmlToReturn = htmlToReturn.replace("{{ratingUrl}}", ageRating.ratingUrl);
 
     // Html title
     htmlToReturn = htmlToReturn.replace("<!--{{gameTitle}}-->", details.title);
