@@ -41,7 +41,14 @@ function returnAllPEGI() {
  * @returns 
  */
 function getUserFriendlyCountryNameFromCountryCode(countryCode) {
-    return countries.getName(countryCode, "en");
+    let countryName = countries.getName(countryCode, "en");
+
+    // For brevity, append "the" to country name
+    if (countryName == "United Kingdom" || countryName == "United States"){
+        countryName = "the " + countryName;
+    }
+
+    return countryName;
 }
 
 /**
