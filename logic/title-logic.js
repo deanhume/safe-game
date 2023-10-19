@@ -102,7 +102,14 @@ function buildTitleDetails(id, ipAddress, age, countryOverride) {
 
     // Display the ratings details
     htmlToReturn = htmlToReturn.replace("<!--{{ratingsImageUrl}}-->", ageRating.ratingImage);
-    htmlToReturn = htmlToReturn.replace("<!--{{ratedAge}}-->", ageRating.titleAgeRating);
+
+    // Write a friendly age category for certain country ratings
+    if (ageRating.friendlyAgeTitle == "Everyone") {
+        htmlToReturn = htmlToReturn.replace("<!--{{ratedAge}}-->", ageRating.friendlyAgeTitle);
+    } else {
+        htmlToReturn = htmlToReturn.replace("<!--{{ratedAge}}-->", ageRating.titleAgeRating);
+    }
+
     htmlToReturn = htmlToReturn.replace("<!--{{ratedAge2}}-->", ageRating.titleAgeRating);
     htmlToReturn = htmlToReturn.replace("<!--{{ratingAuthority}}-->", ageRating.ratingAuthority);
     htmlToReturn = htmlToReturn.replace("{{ratingUrl}}", ageRating.ratingUrl);

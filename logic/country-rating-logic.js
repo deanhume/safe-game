@@ -66,6 +66,7 @@ function determineAgeRating(enteredAge, ipAddress, details, countryOverride) {
     let titleAgeRating = 0;
     let ratingImage = '';
     let isBanned = false;
+    let friendlyAgeTitle = '';
     enteredAge = parseInt(enteredAge);
 
     // Get the location details
@@ -79,6 +80,10 @@ function determineAgeRating(enteredAge, ipAddress, details, countryOverride) {
     if (returnAllESRB().includes(location.country)) { // Americas
         isBanned = parseInt(details.rating.ESRB) ? false : true;
         titleAgeRating = parseInt(details.rating.ESRB);
+        if (titleAgeRating == 1){
+            friendlyAgeTitle = "Everyone";
+        }
+        
         ratingImage = `/images/esrb/${details.rating.ESRB}.svg`;
         ratingAuthority = "ESRB";
         ratingUrl = 'https://www.esrb.org/';
@@ -175,7 +180,7 @@ function determineAgeRating(enteredAge, ipAddress, details, countryOverride) {
         ratingImage = '/images/not-available.svg';
     }
 
-    return { titleAgeRating, ratingImage, isBanned, ratingAuthority, ratingUrl };
+    return { titleAgeRating, ratingImage, isBanned, ratingAuthority, ratingUrl, friendlyAgeTitle };
 
 }
 
